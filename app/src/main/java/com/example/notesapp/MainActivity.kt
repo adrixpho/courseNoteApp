@@ -3,13 +3,11 @@ package com.example.notesapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
+import com.example.notesapp.model.Note
 import com.example.notesapp.screen.NotesScreen
 import com.example.notesapp.ui.theme.NotesAppTheme
 
@@ -22,7 +20,14 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colors.background
                 ) {
-                    NotesScreen()
+                    val notes = remember {
+                        mutableStateListOf<Note>()
+                    }
+
+                    NotesScreen(
+                        notes = notes,
+                        onRemoveNote = { notes.remove(it) },
+                        onAddNote = { notes.add(it) })
                 }
             }
         }
