@@ -2,6 +2,7 @@
 
 package com.example.notesapp.components
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -15,6 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun NoteInputText(
@@ -42,6 +45,17 @@ fun NoteInputText(
     )
 }
 
+@Preview(showBackground = true)
+@Composable
+fun NoteInputTextPreview() {
+    NoteInputText(
+        modifier = Modifier.padding(10.dp),
+        text = "Hola",
+        label = "Nombre",
+        onTextChange = {})
+}
+
+
 @Composable
 fun NoteButton(
     modifier: Modifier = Modifier,
@@ -52,4 +66,10 @@ fun NoteButton(
     Button(modifier = modifier, onClick = onClick, shape = CircleShape, enabled = enabled) {
         Text(text)
     }
+}
+
+@Preview
+@Composable
+fun NoteButtonPreview() {
+    NoteButton(modifier = Modifier.padding(10.dp), text = "Save")
 }
