@@ -17,8 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.notesapp.data.NotesDataSource
 import com.example.notesapp.model.Note
-import com.example.notesapp.model.formatDate
-import java.time.format.DateTimeFormatter
+import com.example.notesapp.utils.formatDate
 
 @Composable
 fun NoteRow(modifier: Modifier = Modifier, note: Note, onNoteClicked: (Note) -> Unit) {
